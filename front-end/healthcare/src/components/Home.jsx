@@ -67,6 +67,11 @@ const Home = () => {
           <img
             src="https://hiu.vn/wp-content/uploads/2022/08/IMG_0930-1024x683.jpg" // Thay thế bằng URL hình ảnh của bác sĩ tận tình
             alt="Bác sĩ chăm sóc bệnh nhân"
+            className="w-full max-w-md rounded-lg shadow-lg mr-6"
+          />
+          <img
+            src="https://hiu.vn/wp-content/uploads/2022/08/IMG_0930-1024x683.jpg" // Thay thế bằng URL hình ảnh của bác sĩ tận tình
+            alt="Bác sĩ chăm sóc bệnh nhân"
             className="w-full max-w-md rounded-lg shadow-lg"
           />
         </div>

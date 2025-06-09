@@ -14,7 +14,7 @@ class UserViewSet(viewsets.ModelViewSet):
     search_fields = ['email', 'first_name', 'last_name', 'username']
 
     def get_permissions(self):
-        if self.action in ['create', 'partial_update', 'destroy']:
+        if self.action in ['partial_update', 'destroy']:
             # Chỉ admin mới được tạo/sửa/xóa user khác
             permission_classes = [permissions.IsAdminUser]
         else:
