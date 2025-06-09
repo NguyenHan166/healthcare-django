@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Appointments from './components/Appointments';
 import PatientRecords from './components/PatientRecords';
 import Navbar from './components/Navbar';
+import ChatBot from './components/ChatBot';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/appointments" element={<Appointments />} />
           <Route path="/patient-records" element={<PatientRecords />} />
           <Route path="/" element={<Login />} />
+          <Route path="/chatbot" element={<ChatBot />} />
         </Routes>
       </div>
     </BrowserRouter>

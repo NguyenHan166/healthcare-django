@@ -12,13 +12,24 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         const restoreUser = async () => {
             const storedUserId = localStorage.getItem('user_id');
+
+            if (!storedUserId) {
+                console.error('User ID is not found in localStorage');
+                setLoading(false);  // Set loading to false to avoid keeping the loader on
+                return;  // Dừng hàm nếu không có user_id
+            }
+
+            const userId = storedUserId.replace(/"/g, '');  // Remove quotes if stored as a string
+            console.log('Restoring user with ID:', userId);
+
             if (token && storedUserId) {
                 try {
-                    const response = await axios.get(`http://localhost:8001/api/v1/users/${storedUserId}/`, {
+                    const response = await axios.get(`http://localhost:8000/api/v1/users/${userId}/`, {
                         headers: { Authorization: `Bearer ${token}` },
                     });
                     setUser(response.data);
-                    console.log('User restored:', user);
+                    localStorage.setItem('user_id', JSON.stringify(response.data.id));
+                    console.log('User restored:', response.data);
                 } catch (error) {
                     console.error('Failed to restore user:', error);
                     setToken(null);
@@ -89,7 +100,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ user, token, login, register, logout, loading, apiRequest }}>
+        <AuthContext.Provider value={{ user, token, login, register, logout, loading, apiRequest , setUser}}>
             {children}
         </AuthContext.Provider>
     );

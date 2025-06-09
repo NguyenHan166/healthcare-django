@@ -75,9 +75,17 @@ const Navbar = () => {
                             >
                                 Đặt Lịch Khám
                             </Link>
+                            <Link
+                                to="/chatbot"
+                                className={`block py-2 px-4 rounded-lg ${isActive('/chatbot')} transition duration-200 md:inline-block`}
+                                onClick={() => setIsOpen(false)}
+                            >
+                                HealthCare Chatbot
+                            </Link>
+
                             {(user.role === 'DOCTOR' || user.role === 'PATIENT') && (
                                 <Link to="/patient-records" className={`block py-2 px-4 rounded-lg ${isActive('/patient-records')} transition duration-200 md:inline-block`}>
-                                    Hồ Sơ Bệnh Nhân
+                                    Bệnh án
                                 </Link>
                             )}
                             <button
