@@ -33,7 +33,6 @@ Sơ đồ kiến trúc tổng thể:
 
 ## I. API Gateway
 
-*   **Công nghệ**: Có thể sử dụng Kong, KrakenD, Ocelot (.NET nhưng phổ biến), hoặc tự xây dựng một lớp proxy đơn giản bằng FastAPI/Flask (nhưng không khuyến khích cho production phức tạp).
 *   **Chức năng chính**:
     1.  **Routing**: Điều hướng request đến microservice tương ứng dựa trên path.
         *   `/api/v1/users/*` -> User Service
